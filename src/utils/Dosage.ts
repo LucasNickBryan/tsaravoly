@@ -19,6 +19,11 @@ export function generateDose(n_sol: number, p_sol: number, k_sol: number, n_cult
     return {
         dose_N: calculateDose(poids_commande, besoin_N, total_besoin),
         dose_P: calculateDose(poids_commande, besoin_P, total_besoin),
-        dose_K: calculateDose(poids_commande, besoin_K, total_besoin)
+        dose_K: calculateDose(poids_commande, besoin_K, total_besoin),
+        exces:{
+            n: besoin_N < 1,
+            p: besoin_P < 1,
+            k: besoin_K < 1,
+        }
     };
 }

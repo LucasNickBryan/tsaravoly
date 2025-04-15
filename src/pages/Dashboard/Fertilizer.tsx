@@ -6,6 +6,11 @@ interface IDose {
     dose_N: number;
     dose_P: number;
     dose_K: number;
+    exces: {
+        n: boolean;
+        p: boolean;
+        k: boolean;
+    }
 }
 
 export default function Fertilizer() {
@@ -98,6 +103,10 @@ export default function Fertilizer() {
                         </h4>
                         <div className="flex flex-col md:flex-row items-start md:items-center gap-2 md:gap-12 mt-2">
                             <div className="flex flex-col">
+                                {
+                                    dose?.exces.n &&
+                                    <span className="text-sm text-yellow-500">en excès</span>
+                                }
                                 <div className="flex items-center gap-4">
                                     <label htmlFor="soilN" className="block text-2xl font-medium text-gray-800 dark:text-gray-300">
                                         N
@@ -122,6 +131,10 @@ export default function Fertilizer() {
                             </div>
 
                             <div className="flex flex-col">
+                                {
+                                    dose?.exces.p &&
+                                    <span className="text-sm text-yellow-500">en excès</span>
+                                }
                                 <div className="flex items-center gap-4">
                                     <label htmlFor="soilP" className="block text-2xl font-medium text-gray-800 dark:text-gray-300">
                                         P
@@ -146,6 +159,10 @@ export default function Fertilizer() {
                             </div>
 
                             <div className="flex flex-col">
+                                {
+                                    dose?.exces.k &&
+                                    <span className="text-sm text-yellow-500">en excès</span>
+                                }
                                 <div className="flex items-center gap-4">
                                     <label htmlFor="soilK" className="block text-2xl font-medium text-gray-800 dark:text-gray-300">
                                         K
@@ -260,7 +277,7 @@ export default function Fertilizer() {
                 </h2>
                 <div className="flex flex-col md:flex-row gap-8 items-start md:items-center mt-6">
                     <div className="bg-teal-200 min-w-52 h-32 md:h-40 rounded-xl p-4 flex flex-col items-center justify-center relative">
-                        <span className="absolute w-10/12 p-1 bg-slate-900 text-white text-center text-2xl rounded-xl -top-3">N</span>
+                        <span className="absolute w-10/12 p-1 bg-slate-900 text-white text-center text-2xl rounded-xl -top-3">Fumier</span>
                         <h4 className="text-7xl font-semibold text-gray-800 dark:text-white">
                             {dose?.dose_N ? dose.dose_N : '_'}
                             <span className="text-base font-normal text-gray-500 dark:text-gray-300">
@@ -270,7 +287,7 @@ export default function Fertilizer() {
                     </div>
 
                     <div className="bg-teal-200 min-w-52 h-32 md:h-40 rounded-xl p-4 flex flex-col items-center justify-center relative">
-                        <span className="absolute w-10/12 p-1 bg-slate-900 text-white text-center text-2xl rounded-xl -top-3">P</span>
+                        <span className="absolute w-10/12 p-1 bg-slate-900 text-white text-center text-2xl rounded-xl -top-3">Os</span>
                         <h4 className="text-7xl font-semibold text-gray-800 dark:text-white">
                             {dose?.dose_P ? dose.dose_P : '_'}
                             <span className="text-base font-normal text-gray-500 dark:text-gray-300">
@@ -280,7 +297,7 @@ export default function Fertilizer() {
                     </div>
 
                     <div className="bg-teal-200 min-w-52 h-32 md:h-40 rounded-xl p-4 flex flex-col items-center justify-center relative">
-                        <span className="absolute w-10/12 p-1 bg-slate-900 text-white text-center text-2xl rounded-xl -top-3">K</span>
+                        <span className="absolute w-10/12 p-1 bg-slate-900 text-white text-center text-2xl rounded-xl -top-3">Cendre de bois</span>
                         <h4 className="text-7xl font-semibold text-gray-800 dark:text-white">
                             {dose?.dose_K ? dose.dose_K : '_'}
                             <span className="text-base font-normal text-gray-500 dark:text-gray-300">
